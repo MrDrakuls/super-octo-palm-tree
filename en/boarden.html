@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial Board | Intellectuals | Scientific Journal</title>
+    <link rel="preload" href="../favicon.ico" as="image">
+	<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="../style.css" as="style">
+	<link rel="stylesheet" href="../style.css"> <style>
+        /* Общий стиль для ссылок в навигации для выделения активной страницы */
+        .main-nav .active-page {
+            color: var(--accent-color); /* #A000A0 */
+        }
+        .col ul .active-page {
+            color: var(--accent-color) !important; 
+        }
+
+        /* Стили для основной секции контента */
+        .content-section {
+            padding: 20px 0 100px;
+            max-width: var(--max-width); 
+            margin: 0 auto;
+            text-align: center; /* Центрируем заголовок и подзаголовки */
+        }
+
+        /* ЗАГОЛОВОК H2: Montserrat Black 24px, по центру */
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: 900; /* Black */
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* Стиль для подзаголовка ISSN */
+        .issn-inline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #AAAAAA;
+            text-align: right;
+            margin-bottom: 15px; 
+            display: block;
+        }
+
+        /* Секция главного редактора */
+        .main-editor-section {
+            padding-bottom: 50px;
+            border-bottom: 1px solid #EEEEEE;
+            margin-bottom: 25px; 
+        }
+        
+        .main-editor-section .board-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            /* Отступ до "Главный редактор" 40px */
+            margin-top: 40px; 
+            margin-bottom: 30px;
+        }
+        
+        /* КОНТЕЙНЕР ДЛЯ РАЗДЕЛЕНИЯ НА 2 КОЛОНКИ */
+        .main-editor-details {
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Левая колонка (Имя и ссылка) */
+        .main-editor-name-col {
+            width: 200px; /* Фиксированная ширина для имени */
+            text-align: left;
+            padding-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        /* Правая колонка (Описание/роль) */
+        .main-editor-info-col {
+            max-width: 600px; /* Максимальная ширина для описания */
+            text-align: left;
+        }
+        
+        /* Стили для текста Главного редактора и членов коллегии */
+        .member-name {
+            font-size: 16px;
+            font-weight: 700; /* Bold */
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .member-elibrary a {
+            font-size: 14px;
+            font-weight: 500;
+            /* ИЗМЕНЕНИЕ ЦВЕТА: Установлен цвет 0057FF */
+            color: #0057FF;
+            display: block;
+            margin-bottom: 10px;
+            font-style: italic; 
+        }
+        
+        .member-elibrary a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Роль/Описание (должны быть 14px) */
+        .member-role {
+            font-size: 14px;
+            font-weight: 400; /* Regular */
+            line-height: 1.5;
+            color: #444444;
+        }
+
+
+        /* Модуль карточки члена коллегии */
+        .board-member-card {
+            width: 250px; /* Фиксированная ширина карточки */
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        /* Секция членов коллегии (сетка) */
+        .editorial-board-section {
+            padding-bottom: 50px;
+        }
+        
+        .editorial-board-section .board-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+        }
+
+        .board-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+            justify-content: center; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <a href="indexen.html" class="logo-link">
+					<div class="logo">INTELLECTUALS</div>
+				</a>
+                <nav class="main-nav">
+					<a href="indexen.html">About the Journal</a>
+                    <a href="boarden.html" class="active-page">Editorial Board</a>
+                    <a href="reviewen.html">Review Process</a>
+                    <a href="authorsen.html">For Authors</a>
+                    <a href="archiveen.html">Archive</a>
+                </nav>
+                <div class="lang-switch">
+                    <span><a href="../board.html">RU</a></span>
+                    <span class="active">EN</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section"> 
+            
+            <span class="issn-inline">ISSN **-***-** (Online)</span>
+            
+            <h2>Editorial Board</h2>
+            
+            <section class="main-editor-section">
+                <p class="board-title">Editor-in-Chief</p>
+                
+                <div class="main-editor-details">
+                    <div class="main-editor-name-col">
+                        <div class="member-name">Dmitry V. Gulyakin</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                    </div>
+                    
+                    <div class="main-editor-info-col">
+                        <div class="member-role">Doctor of Pedagogical Sciences, Professor, Associate Professor of the A.V. Titov Department of Architecture of Civil and Industrial Buildings, Kuban State Technological University</div>
+                    </div>
+                </div>
+                
+            </section>
+            
+            <section class="editorial-board-section">
+                <p class="board-title">Editorial Board Members</p>
+                
+                <div class="board-grid">
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    <div class="board-member-card">
+                        <div class="member-name">Ivan I. Ivanov</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Doctor of Historical Sciences, Associate Professor, Professor of the Department of History, Philosophy, and Psychology, Kuban State Technological University</div>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+    
+        <div class="footer-top-row">
+            <div class="container">
+                <a href="indexen.html" class="logo-link">
+					<div class="logo">INTELLECTUALS</div>
+				</a>
+                <div class="phone-info">
+                    <span class="phone-number">8 918 ***-**-**</span>
+                    <span class="work-time">on weekdays from 10:00 to 17:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-row">
+            <div class="container">
+                <div class="col">
+                    <p class="col-title">Publication in the Journal</p>
+                    <ul>
+                        <li><a href="#">Submission Guidelines</a></li>
+                        <li><a href="authorsen.html">Publish an Article</a></li>
+                        <li><a href="authorsen.html">Publication Procedure</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">About the Journal</p>
+                    <ul>
+                        <li><a href="reviewen.html">Editorial Policy</a></li>
+                        <li class="active-page"><a href="boarden.html">Editorial Board</a></li> 
+                        <li><a href="reviewen.html">Review Process</a></li>
+                        <li><a href="archiveen.html">Journal Archive</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">Contacts</p>
+                    <p class="contact-detail"><span class="icon-wrap"><img src="../images/phone-icon.svg" alt="Phone"></span> 8 918 ***-**-**</p> 
+                    <p class="contact-detail"><span class="icon-wrap"><img src="../images/mail-icon.svg" alt="Mail"></span> ****@yandex.ru</p> 
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпуск №X / 2024 | Интеллектуалы | Научный журнал</title>
+	<link rel="preload" href="favicon.ico" as="image">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        /* ======================================= */
+        /* ЛОКАЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ВЫПУСКА */
+        /* ======================================= */
+        
+        /* Стили для основной секции контента */
+        .content-section {
+            padding: 20px 0 100px;
+            max-width: var(--max-width); 
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* Общая информация о выпуске (Номер, DOI, Кнопка) */
+        .issue-header-info {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE; 
+        }
+
+        /* Главный заголовок выпуска (теперь H2) */
+        .issue-title-heading {
+            font-size: 24px; 
+            font-weight: 900; /* Black */
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        /* DOI или другие мелкие данные */
+        .issue-doi {
+            font-size: 14px;
+            font-weight: 500;
+            color: #AAAAAA;
+            margin-bottom: 25px;
+        }
+
+        /* Кнопка "Скачать PDF" */
+        .btn-download {
+            width: auto !important; 
+            padding: 0 30px !important;
+            margin: 0 !important;
+        }
+
+        /* Стили для рубрик и статей */
+        .issue-rubric {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #DDDDDD; 
+        }
+
+        .issue-rubric:last-child {
+            border-bottom: none; 
+        }
+
+        /* Заголовок рубрики */
+        .rubric-title {
+            font-size: 20px;
+            font-weight: 700; 
+            color: var(--accent-color); 
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--accent-color); 
+        }
+
+        /* Контейнер для одной статьи */
+        .article-item {
+            display: flex;
+            align-items: center; 
+            padding: 15px 0;
+            border-top: 1px solid #EEEEEE;
+        }
+        
+        .article-item:first-of-type {
+            border-top: none; 
+        }
+        
+        /* ИКОНКА СКАЧИВАНИЯ */
+        .article-download-icon {
+            width: 34px; 
+            height: 34px;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+            background-color: transparent; 
+            margin-right: 15px; 
+            transition: none;
+            flex-shrink: 0; 
+        }
+        
+        /* Стили самой иконки внутри ссылки */
+        .article-download-icon img {
+            width: 22px; 
+            height: 22px;
+            display: block;
+        }
+
+
+        /* Контейнер для названия и авторов (средняя часть) */
+        .article-main-info {
+            flex-grow: 1; 
+            margin-right: 30px;
+        }
+
+        /* Название статьи */
+        .article-title {
+            display: inline-block; 
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--dark-color);
+            line-height: 1.4;
+            text-decoration: none; 
+            transition: color 0.2s;
+        }
+        
+        /* Подчеркивание при наведении */
+        .article-title:hover {
+             color: var(--accent-color);
+             text-decoration: underline; 
+        }
+
+        /* Авторы статьи */
+        .article-author {
+            font-size: 16px;
+            font-weight: 500;
+            color: #555555;
+            margin: 5px 0 0 0;
+            line-height: 1.4;
+        }
+        
+        /* Страницы (правая часть) */
+        .article-pages {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-color);
+            width: 80px; 
+            flex-shrink: 0;
+            text-align: right;
+            line-height: 1.4;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+				<a href="index.html" class="logo-link">
+					<div class="logo">ИНТЕЛЛЕКТУАЛЫ</div>
+				</a>
+                <nav class="main-nav">
+                    <a href="index.html">О журнале</a>
+                    <a href="board.html">Редакционная коллегия</a>
+                    <a href="review.html">Рецензирование</a>
+                    <a href="authors.html">Авторам</a>
+                    <a href="archive.html" class="active-page">Архив выпусков</a>
+                </nav>
+                <div class="lang-switch">
+                    <span class="active">RU</span>
+                    <span>EN</span> 
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section">
+            
+            <div class="issue-header-info">
+                <h2 class="issue-title-heading">Выпуск №1 / 2025</h2> 
+                <p class="issue-doi">DOI: 10.12345/intellectuals.2025.1</p>
+                <a href="pdfs/issue-1-2025.pdf" class="btn btn-primary btn-download" target="_blank">
+                    Скачать PDF выпуска
+                </a>
+            </div>
+            
+            <div class="issue-content-table">
+
+                <section class="issue-rubric">
+                    <h3 class="rubric-title">1. ТЕМАТИЧЕСКАЯ РУБРИКА: ИСТОРИЧЕСКИЕ НАУКИ</h3>
+                    
+                    <div class="article-item">
+                        <a href="pdfs/article-1.pdf" class="article-download-icon" target="_blank" title="Скачать статью в PDF">
+                            <img src="images/file-icon.svg" alt="PDF">
+                        </a>
+                        
+                        <div class="article-main-info">
+                            <a href="article-1.html" class="article-title" target="_blank">Название первой статьи: Ключевые изменения в историографии XX века и их влияние на современное общество</a>
+                            <p class="article-author">Иванов И. И., Петров П. П.</p>
+                        </div>
+                        
+                        <p class="article-pages">С. 5–15</p>
+                    </div>
+                    
+                    <div class="article-item">
+                        <a href="pdfs/article-2.pdf" class="article-download-icon" target="_blank" title="Скачать статью в PDF">
+                            <img src="images/file-icon.svg" alt="PDF">
+                        </a>
+                        <div class="article-main-info">
+                            <a href="article-2.html" class="article-title" target="_blank">Анализ архивных документов XX века: Неизвестные факты о Первой мировой войне</a>
+                            <p class="article-author">Сидорова А. В.</p>
+                        </div>
+                        <p class="article-pages">С. 16–28</p>
+                    </div>
+                </section>
+                
+                <section class="issue-rubric">
+                    <h3 class="rubric-title">2. ТЕМАТИЧЕСКАЯ РУБРИКА: ФИЛОСОФСКИЕ НАУКИ</h3>
+                    
+                    <div class="article-item">
+                        <a href="pdfs/article-3.pdf" class="article-download-icon" target="_blank" title="Скачать статью в PDF">
+                            <img src="images/file-icon.svg" alt="PDF">
+                        </a>
+                        <div class="article-main-info">
+                            <a href="article-3.html" class="article-title" target="_blank">Проблема сознания в пост-кантианской философии: критический обзор</a>
+                            <p class="article-author">Алексеев В. С.</p>
+                        </div>
+                        <p class="article-pages">С. 29–40</p>
+                    </div>
+                    
+                    <div class="article-item">
+                        <a href="pdfs/article-4.pdf" class="article-download-icon" target="_blank" title="Скачать статью в PDF">
+                            <img src="images/file-icon.svg" alt="PDF">
+                        </a>
+                        <div class="article-main-info">
+                            <a href="article-4.html" class="article-title" target="_blank">Этика искусственного интеллекта: новые вызовы для гуманизма</a>
+                            <p class="article-author">Кузнецова О. А.</p>
+                        </div>
+                        <p class="article-pages">С. 41–55</p>
+                    </div>
+                </section>
+                
+                <section class="issue-rubric">
+                    <h3 class="rubric-title">3. ТЕМАТИЧЕСКАЯ РУБРИКА: ЭКОНОМИЧЕСКИЕ НАУКИ</h3>
+                    
+                    <div class="article-item">
+                        <a href="pdfs/article-5.pdf" class="article-download-icon" target="_blank" title="Скачать статью в PDF">
+                            <img src="images/file-icon.svg" alt="PDF">
+                        </a>
+                        <div class="article-main-info">
+                            <a href="article-5.html" class="article-title" target="_blank">Моделирование финансовой стабильности в условиях глобальной рецессии</a>
+                            <p class="article-author">Смирнов Г. Е., Зайцева К. В.</p>
+                        </div>
+                        <p class="article-pages">С. 56–70</p>
+                    </div>
+                </section>
+
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="footer">
+    
+		<div class="footer-top-row">
+			<div class="container">
+				<a href="index.html" class="logo-link">
+					<div class="logo">ИНТЕЛЛЕКТУАЛЫ</div>
+				</a>
+				<div class="phone-info">
+					<span class="phone-number">8 918 ***-**-**</span>
+					<span class="work-time">в рабочие дни с 10:00 до 17:00</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom-row">
+			<div class="container">
+				<div class="col">
+					<p class="col-title">Публикация в журнале</p>
+					<ul>
+						<li><a href="authors.html">Требования оформления</a></li>
+						<li><a href="authors.html">Опубликовать статью</a></li>
+						<li><a href="authors.html">Порядок публикации</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<p class="col-title">О журнале</p>
+					<ul>
+						<li><a href="review.html">Редакционная политика</a></li>
+						<li><a href="board.html">Редакционная коллегия</a></li>
+						<li><a href="review.html">Рецензирование</a></li>
+						<li><a href="archive.html">Архив выпусков</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<p class="col-title">Контакты</p>
+					<p class="contact-detail"><span class="icon-wrap"><img src="images/phone-icon.svg" alt="Телефон"></span> 8 918 ***-**-**</p> 
+					<p class="contact-detail"><span class="icon-wrap"><img src="images/mail-icon.svg" alt="Почта"></span> ****@yandex.ru</p> 
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-copyright">
+			<div class="container">
+				<p>© Интеллектуалы, 2025. Все права защищены.</p>
+				<p><a href="#">Политика конфиденциальности</a></p>
+			</div>
+		</div>
+    </footer>
+
+    
+</body>
+</html>

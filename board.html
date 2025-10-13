@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редакционная коллегия | Интеллектуалы | Научный журнал</title>
+	<link rel="preload" href="favicon.ico" as="image">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="style.css" as="style">
+	<link rel="stylesheet" href="style.css">
+    
+    <style>
+
+        /* Стили для основной секции контента */
+        .content-section {
+            padding: 20px 0 100px;
+            max-width: var(--max-width); 
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ЗАГОЛОВОК H2: Montserrat Black 24px, по центру */
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: 900; /* Black */
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* Стиль для подзаголовка ISSN */
+        .issn-inline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #AAAAAA;
+            text-align: right;
+            margin-bottom: 15px; 
+            display: block;
+        }
+
+        /* Секция главного редактора */
+        .main-editor-section {
+            padding-bottom: 50px;
+            border-bottom: 1px solid #EEEEEE;
+            margin-bottom: 25px; 
+        }
+        
+        .main-editor-section .board-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            /* Отступ до "Главный редактор" 40px */
+            margin-top: 40px; 
+            margin-bottom: 30px;
+        }
+        
+        /* КОНТЕЙНЕР ДЛЯ РАЗДЕЛЕНИЯ НА 2 КОЛОНКИ */
+        .main-editor-details {
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Левая колонка (Имя и ссылка) */
+        .main-editor-name-col {
+            width: 200px; /* Фиксированная ширина для имени */
+            text-align: left;
+            padding-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        /* Правая колонка (Описание/роль) */
+        .main-editor-info-col {
+            max-width: 600px; /* Максимальная ширина для описания */
+            text-align: left;
+        }
+        
+        /* Стили для текста Главного редактора и членов коллегии */
+        .member-name {
+            font-size: 16px;
+            font-weight: 700; /* Bold */
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .member-elibrary a {
+            font-size: 14px;
+            font-weight: 500;
+            /* ИЗМЕНЕНИЕ ЦВЕТА: Установлен цвет 0057FF */
+            color: #0057FF;
+            display: block;
+            margin-bottom: 10px;
+            font-style: italic; 
+        }
+        
+        .member-elibrary a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Роль/Описание (должны быть 14px) */
+        .member-role {
+            font-size: 14px;
+            font-weight: 400; /* Regular */
+            line-height: 1.5;
+            color: #444444;
+        }
+
+
+        /* Модуль карточки члена коллегии */
+        .board-member-card {
+            width: 250px; /* Фиксированная ширина карточки */
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        /* Секция членов коллегии (сетка) */
+        .editorial-board-section {
+            padding-bottom: 50px;
+        }
+        
+        .editorial-board-section .board-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+        }
+
+        .board-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+            justify-content: center; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <a href="index.html" class="logo-link">
+					<div class="logo">ИНТЕЛЛЕКТУАЛЫ</div>
+				</a>
+                <nav class="main-nav">
+					<a href="index.html">О журнале</a>
+                    <a href="board.html" class="active-page">Редакционная коллегия</a>
+                    <a href="review.html">Рецензирование</a>
+                    <a href="authors.html">Авторам</a>
+                    <a href="archive.html">Архив выпусков</a>
+                </nav>
+                <div class="lang-switch">
+                    <span class="active">RU</span>
+                    <span><a href="en/boarden.html">EN</a></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section"> 
+            
+            <span class="issn-inline">ISSN **-***-** (Online)</span>
+            
+            <h2>Редакционная коллегия</h2>
+            
+            <section class="main-editor-section">
+                <p class="board-title">Главный редактор</p>
+                
+                <div class="main-editor-details">
+                    <div class="main-editor-name-col">
+                        <div class="member-name">Гулякин Дмитрий Владимирович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                    </div>
+                    
+                    <div class="main-editor-info-col">
+                        <div class="member-role">Доктор педагогических наук, профессор, доцент кафедры архитектуры гражданских и промышленных зданий имени А.В. Титова Кубанского государственного технологического университета</div>
+                    </div>
+                </div>
+                
+            </section>
+            
+            <section class="editorial-board-section">
+                <p class="board-title">Члены редакционной коллегии</p>
+                
+                <div class="board-grid">
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    <div class="board-member-card">
+                        <div class="member-name">Иванов Иван Иванович</div>
+                        <div class="member-elibrary"><a href="#">Elibrary.ru</a></div>
+                        <div class="member-role">Доктор исторических наук, доцент, профессор кафедры истории, философии и психологии Кубанского государственного технологического университета</div>
+                    </div>
+                    
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+    
+        <div class="footer-top-row">
+            <div class="container">
+                <a href="index.html" class="logo-link">
+					<div class="logo">ИНТЕЛЛЕКТУАЛЫ</div>
+				</a>
+                <div class="phone-info">
+                    <span class="phone-number">8 918 ***-**-**</span>
+                    <span class="work-time">в рабочие дни с 10:00 до 17:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-row">
+            <div class="container">
+                <div class="col">
+                    <p class="col-title">Публикация в журнале</p>
+                    <ul>
+                        <li><a href="#">Требования оформления</a></li>
+                        <li><a href="#">Опубликовать статью</a></li>
+                        <li><a href="#">Порядок публикации</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">О журнале</p>
+                    <ul>
+                        <li><a href="#">Редакционная политика</a></li>
+                        <li class="active-page"><a href="#">Редакционная коллегия</a></li> 
+                        <li><a href="#">Рецензирование</a></li>
+                        <li><a href="#">Архив журнала</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">Контакты</p>
+                    <p class="contact-detail"><span class="icon-wrap"><img src="images/phone-icon.svg" alt="Телефон"></span> 8 918 ***-**-**</p> 
+                    <p class="contact-detail"><span class="icon-wrap"><img src="images/mail-icon.svg" alt="Почта"></span> ****@yandex.ru</p> 
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- <div class="cookie-fixed-bar"> 
+    <div class="cookie-policy-text">
+        Мы используем cookies (куки) и подобные им технологии для того, чтобы у Вас сложилось наилучшее впечатление о работе нашего сайта. Если Вы продолжаете использовать наш сайт, это означает, что Вы согласны с использованием cookies. Для получения дополнительной информации, пожалуйста, ознакомьтесь с нашими <a href="#">Политиками</a>
+    </div>
+    <button class="btn btn-cookie">Принять и закрыть</button>
+</div> -->
+
+    
+</body>
+</html>

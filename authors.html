@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторам | Интеллектуалы | Научный журнал</title>
+	<link rel="preload" href="favicon.ico" as="image">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ======================================= */
+        /* === СТИЛИ ДЛЯ СТРАНИЦЫ "АВТОРАМ" === */
+        /* ======================================= */
+        
+        /* 1. Общие стили для контентной секции */
+        .content-section {
+            padding: 20px 0 100px;
+            max-width: var(--max-width); 
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* Стиль для подзаголовка ISSN */
+        .issn-inline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #AAAAAA;
+            text-align: right;
+            margin-bottom: 15px; 
+            display: block;
+        }
+        
+        /* ЗАГОЛОВОК H2 */
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: 900; 
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+		/* ======================================= */
+		/* 5. СЕКЦИЯ ССЫЛОК НА СКАЧИВАНИЕ (ФИНАЛЬНЫЙ ВАРИАНТ) */
+		/* ======================================= */
+
+		.download-links-section {
+			margin-bottom: 60px; 
+			text-align: left;
+		}
+
+		/* Теперь A-тег является основным контейнером */
+		.download-link-item {
+			display: flex;
+			align-items: center;
+			margin-bottom: 20px; 
+			
+			/* Стили для всей ссылки: выравнивание и цвет */
+			font-size: 16px;
+			font-weight: 500;
+			color: #0057FF;
+			text-decoration: underline; /* Подчеркивание */
+			width: fit-content; /* Чтобы подчеркивание не растягивалось на всю ширину */
+		}
+
+		.download-link-item:hover {
+			color: var(--accent-color);
+			text-decoration: none; 
+		}
+
+
+		.download-icon-wrap {
+			width: 24px;
+			height: 24px;
+			margin-right: 15px;
+			flex-shrink: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.download-icon-wrap img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		/* ======================================= */
+        /* 2. СЕКЦИЯ ШАГОВ ПУБЛИКАЦИИ (ФИНАЛЬНОЕ ИСПРАВЛЕНИЕ) */
+        /* ======================================= */
+        
+        .steps-nav {
+            display: flex;
+            justify-content: space-between; 
+            /* ИЗМЕНЕНО: Задаем отступ 20px от шагов до следующей секции */
+            margin-bottom: 20px;
+            text-align: center;
+            flex-wrap: nowrap; 
+            align-items: stretch; 
+        }
+        
+        .step-card {
+            background-color: white;
+            /* Отступ 15px от нижнего края квадрата */
+            padding: 40px 20px 20px; 
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            
+            /* ТОЧНОЕ РАБОЧЕЕ ВЫРАВНИВАНИЕ ПО ШИРИНЕ */
+            width: calc((100% - 60px) / 4); 
+            
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            /* Разносим текст и иконку вопроса по вертикали */
+            justify-content: space-between; 
+            
+            /* УДАЛЕНО: min-height, так как flex-grow: 1 все сделает */
+            flex-shrink: 0; 
+        }
+        
+        /* Квадрат с номером */
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background-color: var(--dark-color);
+            color: white;
+            font-size: 24px;
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .step-number::after {
+            content: none; 
+        }
+
+        .step-card-text {
+            font-size: 14px;
+            font-weight: 500; 
+            line-height: 1.4;
+            color: var(--primary-color);
+            
+            /* ВОЗВРАЩЕНО: flex-grow: 1. Это заставит текст заполнить все доступное пространство до иконки вопроса */
+            flex-grow: 1;
+            
+            display: flex; 
+            flex-direction: column;
+            /* УДАЛЕНО: justify-content: center. Теперь текст прижимается кверху внутри flex-grow: 1 контейнера */
+            align-items: center;
+            
+            /* Добавлен верхний отступ 15px, если не сработал через padding-top: 40px */
+            margin-top: 15px;
+        }
+
+        .step-card-text .text-content {
+            text-align: center;
+        }
+        
+        /* Стили для ссылки-почты внутри шага */
+        .step-card-text .step-email-link {
+			color: var(--accent-color);
+			font-weight: 600;
+			text-decoration: none;
+			white-space: nowrap; 
+			transition: color 0.2s, text-decoration 0.2s;
+			
+			/* ИСПРАВЛЕНИЕ: Это делает ссылку контейнером для абсолютно позиционированного окошка */
+			position: relative; 
+			display: inline-block; /* Нужен, чтобы position: relative работал правильно */
+		}
+        
+        /* 2. Стиль при наведении (Hover) и после копирования (классом .copied) */
+		.step-email-link:hover,
+		.step-email-link.copied {
+			text-decoration: underline; /* Добавляем подчеркивание */
+			color: var(--dark-color); /* Затемняем текст при наведении или копировании */
+			cursor: pointer;
+		}
+
+		/* 3. Стили иконки (для центрирования иконки рядом с текстом) */
+		.step-card-text .copy-icon {
+			width: 16px;
+			height: 16px;
+			vertical-align: middle;
+			cursor: pointer;
+			margin-left: 5px;
+			transition: transform 0.2s; /* Плавное изменение иконки */
+		}
+
+		/* Изменение иконки при наведении на всю ссылку */
+		.step-email-link:hover .copy-icon {
+			transform: scale(1.1);
+		}
+		
+		/* Стили для всплывающего окна "Скопировано!" */
+		.copy-feedback {
+			/* Меняем position с absolute на absolute, но без window.scrollY в JS */
+			position: absolute; 
+			
+			/* Устанавливаем положение ОТНОСИТЕЛЬНО ССЫЛКИ */
+			left: 50%;
+			bottom: 100%; /* Помещает его НАД ссылкой */
+			transform: translateX(-50%) translateY(-10px); /* Центрируем и поднимаем на 10px */
+			
+			/* Скрыто по умолчанию и позиционируется абсолютно */
+			visibility: hidden; /* НОВАЯ СТРОКА: Плавное скрытие */
+			
+			/* Внешний вид */
+			background-color: #333333; 
+			color: white;
+			font-size: 14px;
+			font-weight: 500;
+			padding: 6px 12px;
+			border-radius: 6px;
+			white-space: nowrap;
+			
+			/* Настройки для плавного исчезновения */
+			opacity: 0;
+			transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; 
+			z-index: 10000;
+		}
+
+		/* Класс, который JS добавляет для показа окошка */
+		.copy-feedback.show {
+
+			visibility: visible; /* НОВАЯ СТРОКА: Видимо сразу */
+			opacity: 1;
+			
+			/* НОВАЯ СТРОКА: При появлении сбрасываем задержку для visibility */
+			transition-delay: 0s, 0s; 
+		}
+		
+		
+		.rules-section li .udc-link {
+			/* Цвет, который был задан инлайново, теперь в CSS */
+			color: #0057FF; 
+			/* Убираем стандартное подчеркивание, чтобы оно появлялось только при наведении */
+			text-decoration: none; 
+			transition: text-decoration 0.2s;
+		}
+
+		.rules-section li .udc-link:hover {
+			text-decoration: underline; /* Подчеркивание при наведении */
+		}
+		
+		
+
+        /* Иконка вопроса внизу карточки */
+		.question-icon-wrap {
+			width: 24px;
+			height: 24px;
+			margin-top: 15px; 
+			opacity: 0.7;
+			cursor: pointer;
+			transition: opacity 0.2s ease;
+			
+			/* ОБЯЗАТЕЛЬНО: Контейнер для позиционирования подсказки */
+			position: relative; 
+			z-index: 1005; 
+		}
+
+		.question-icon-wrap:hover {
+			opacity: 1;
+		}
+
+		/* 2. Создание всплывающего окна через ::before (Базовое центрирование) */
+		.question-icon-wrap[data-tooltip]::before {
+			content: attr(data-tooltip); 
+			
+			/* Скрытие по умолчанию и анимация */
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity 0.3s, visibility 0s 0.3s;
+			
+			/* ПОЗИЦИОНИРОВАНИЕ (Базовое: над иконкой, по центру) */
+			position: absolute;
+			bottom: 150%; 
+			left: 50%;
+			transform: translateX(-50%); /* Центрируем по умолчанию */
+			
+			/* Внешний вид окна */
+			background-color: var(--dark-color); 
+			color: white;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.4;
+			padding: 10px 15px;
+			border-radius: 8px;
+			white-space: pre-wrap;
+			text-align: center;
+			
+			/* Ограничение ширины */
+			width: 250px; 
+			z-index: 1000; 
+			
+			/* Тень */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		/* 3. Отображение подсказки при наведении */
+		.question-icon-wrap:hover[data-tooltip]::before {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0s;
+		}
+
+
+		/* ======================================= */
+        /* 3. ИНФОРМАЦИОННЫЕ БЛОКИ (ИСПРАВЛЕНИЕ СМЕЩЕНИЯ) */
+        /* ======================================= */
+        
+        .info-blocks-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            /* ИЗМЕНЕНО: Удаляем верхний отступ (он не нужен, так как его задал .steps-nav). 
+            Оставляем только отступ снизу, как было ранее. */
+            margin-top: 0;
+            margin-bottom: 50px; 
+        }
+        
+        .info-block {
+            padding: 30px;
+            border-radius: 20px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            background-color: white;
+            /* Общие стили для всех блоков */
+        }
+        
+        /* Устанавливаем ширину для узкого блока "Информация для авторов" */
+        .info-blocks-grid > .info-block:first-child {
+            /* 35% - 10px (половина gap) = точное размещение */
+            width: calc(35% - 10px); 
+        }
+
+        /* Устанавливаем ширину для широкого блока "ВАЖНОЕ ПРАВИЛО" */
+        .info-blocks-grid > .info-block:last-child {
+            /* 65% - 10px (половина gap) = точное размещение */
+            width: calc(65% - 10px);
+        }
+        
+        .info-block.red {
+            background-color: #FEEEEE; /* Светло-красный фон */
+            border: 1px solid #FF5555;
+        }
+        
+        .info-block h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FF5555; /* Красный заголовок */
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-block h3::before {
+            content: '!'; 
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #FF5555;
+            color: white;
+            font-size: 18px;
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .info-block p, .info-block ul li {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444444;
+            margin-bottom: 10px;
+            text-align: justify; /* ДОБАВЛЕНО ВЫРАВНИВАНИЕ ПО ШИРИНЕ */
+        }
+
+        /* ======================================= */
+        /* 4. СЕКЦИЯ ТРЕБОВАНИЙ (СПИСОК) */
+        /* ======================================= */
+
+        .rules-section h2 {
+            text-align: left;
+            border-bottom: none;
+        }
+
+        .rules-section p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #444444;
+            margin-bottom: 20px;
+        }
+        
+        .rules-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .rules-section li {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #444444;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px; /* Отступ для маркера */
+        }
+        
+        .rules-section li::before {
+            content: '–'; /* Длинное тире в качестве маркера */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .rules-section li strong {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        /* Активная страница в навигации */
+        .main-nav .active-page {
+            color: var(--accent-color); 
+        }
+        .col ul .active-page {
+            color: var(--accent-color) !important; 
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <a href="index.html" class="logo-link">
+					<div class="logo">ИНТЕЛЛЕКТУАЛЫ</div>
+				</a>
+                <nav class="main-nav">
+                    <a href="index.html">О журнале</a>
+                    <a href="board.html">Редакционная коллегия</a>
+                    <a href="review.html">Рецензирование</a>
+                    <a href="authors.html" class="active-page">Авторам</a> 
+                    <a href="archive.html">Архив выпусков</a>
+                </nav>
+                <div class="lang-switch">
+                    <span class="active">RU</span>
+                    <span><a href="en/authorsen.html">EN</a></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section"> 
+            
+            <span class="issn-inline">ISSN -***-** (Online)</span>
+            
+            <h2>Авторам</h2>
+            
+			<div class="download-links-section">
+				
+				<a class="download-link-item" href="files/Шаблон_статьи.docx" download="Шаблон_оформления_статьи.docx">
+					<div class="download-icon-wrap">
+						<img src="images/file-icon.svg" alt="Иконка шаблона">
+					</div>
+					Шаблон оформления статьи
+				</a>
+				
+				<a class="download-link-item" href="files/Анкета_автора.docx" download="Анкета_автора_Интеллектуалы.docx">
+					<div class="download-icon-wrap">
+						<img src="images/file-icon.svg" alt="Иконка анкеты">
+					</div>
+					Анкета автора
+				</a>
+				
+				<a class="download-link-item" 
+				   href="files/Рекомендации_по_статье.pdf" 
+				   target="_blank"> 
+					<div class="download-icon-wrap">
+						<img src="images/file-icon.svg" alt="Иконка рекомендаций">
+					</div>
+					Рекомендации по структуре и оформлению статьи
+				</a>
+			</div>
+
+			<div class="steps-nav">
+                
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-card-text">
+                        <div class="text-content">Подготовить статью в соответствии с правилами оформления статьи</div>
+                    </div>
+                    <div class="question-icon-wrap" data-tooltip="Правила оформления статьи&#10;и шаблон приведены ниже">
+                        <img src="images/question-icon.svg" alt="Иконка вопроса">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-card-text">
+                        <div class="text-content">
+							<span class="text-content">Отправить статью и анкету автора на почту</span>
+							<a href="mailto:**********@yandex.ru" class="step-email-link" data-email="**********@yandex.ru">
+								**********@yandex.ru
+								<img src="images/copy-icon-default.svg" alt="Копировать" class="copy-icon" id="copy-icon">
+								<div id="copy-feedback" class="copy-feedback">
+								Скопировано!
+							</div>
+							</a>
+                        </div>
+                        </div>
+                    <div class="question-icon-wrap" data-tooltip="Архивы и ссылки на файлообменники не принимаются.">
+                        <img src="images/question-icon.svg" alt="Иконка вопроса">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-card-text">
+                        <div class="text-content">Дождаться решения экспертизы редакционной коллегии</div>
+                    </div>
+                    <div class="question-icon-wrap" data-tooltip="При положительном решении автору будут направлены: Лицензионный договор, реквизиты для оплаты и итоговая стоимость публикации.">
+                        <img src="images/question-icon.svg" alt="Иконка вопроса">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-card-text">
+                        <div class="text-content">Оплатить организационный взнос (Бесплатно)</div>
+                    </div>
+                    <div class="question-icon-wrap" data-tooltip="Статья публикуется на безвозмездной основе">
+                        <img src="images/question-icon.svg" alt="Иконка вопроса">
+                    </div>
+                </div>
+
+            </div>
+			
+			
+            <div class="info-blocks-grid">
+                <div class="info-block">
+                    <h2>Информация для авторов</h2>
+                    <p>В журнале публикуются статьи профессорско-преподавательского состава образовательных учреждений высшего и среднего образования, магистрантов, студентов, независимых экспертов.</p>
+                </div>
+                <div class="info-block red">
+                    <h3>ВАЖНОЕ ПРАВИЛО</h3>
+                    <ul>
+                        <li><p>Статья публикуется в авторской редакции. Автор несет ответственность за достоверность изложенных в статье фактов, цитат, правильность написания имен собственных, наименований, формул и цифр.</p></li>
+                        <li><p>Издатель или редакция Издания оставляет за собой право на отзыв (ретракцию) Произведения из научного пространства без срока давности публикации в случаях <strong>нарушения автором общепринятых норм научной этики</strong>.</p></li>
+                        <li><p>Издание придерживается общепринятых в научном сообществе правил относительно <strong>конфликта интересов, нарушения этических правил публикации</strong>.</p></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="rules-section" id="rules">
+                <h2>Правила оформления рукописей</h2>
+                
+                <p>1. К публикации принимаются материалы, которые не были опубликованы ранее или были поданы на рецензирование в другие издания.</p>
+                <p>2. Рекомендуемый объем материалов: от <strong>7</strong> страниц формата А4.</p>
+                <p>3. Обязательно прилагается отчёт системы Антиплагиат <br>(Оригинальность текста — не менее <strong>75%</strong>).</p>
+                <p>4. Материалы предоставляются в следующем виде:</p>
+                
+                <p><strong>ТЕКСТ</strong></p>
+                <ul>
+                    <li><strong>Формат текста:</strong> Microsoft Word (*.doc, *.docx)</li>
+					<li><strong>Ориентация:</strong> книжная.</li>
+                    <li><strong>Поля:</strong> 20 мм со всех сторон.</li>
+                    <li><strong>Межстрочный интервал:</strong> полуторный (1,5).</li>
+					<li><strong>Абзацный отступ:</strong> 10 мм.</li>
+                    <li><strong>Шрифт:</strong> Times New Roman, размер (кегль) – 14 пт.</li>
+                    <li><strong>Форматирование:</strong> по ширине.</li>
+                    <li><strong>Не допускаются использование:</strong> разрывы страниц, разделов, колонки, использование разреженного или уплотненного межбуквенного интервала и нумерация страниц.</li>
+                    <li><strong>Графические элементы (рисунки, таблицы):</strong> должны быть оформлены <strong>единообразно</strong> с основным текстом статьи, включая шрифты и размеры. Рисунки и таблицы отделяются от текста сверху и снизу пустой строкой. Все таблицы и рисунки должны быть пронумерованы и иметь ссылки в тексте (например, Табл. 1, Рис. 1). <br>Графические материалы представляются с разрешением не менее 300 dpi.</li>
+                </ul>
+
+                <p><strong>ДО ТЕКСТА</strong></p>
+                <ul>
+                    <li><strong>УДК и ББК</strong> (выравнивание по левому краю). Найдите УДК на сайте: <a href="https://teacode.com/online/udc" class="udc-link" target="_blank" rel="noopener noreferrer">teacode.com/online/udc</a>.</li>
+                    <li><strong>Сведения об авторах:</strong> (выравнивание по левому краю) — фамилия, имя, отчество (полностью) на <strong>русском</strong> языке (<strong>полужирным шрифтом</strong>); <br>строкой ниже — ученая степень, ученое звание, должность; <br> строкой ниже — место работы (учебы); <br>строкой ниже — адрес электронной почты.</li>
+                    <li><strong>Аннотация: </strong>при составлении аннотации необходимо обратить особое внимание на её содержание, которое должно в сжатой форме отражать ключевые аспекты статьи. Структура аннотации должна включать <strong>три основные части</strong>: постановку задачи (или состояние проблемы), результаты и выводы, каждая из которых должна быть выделена соответствующими заголовками. <br><br>Рекомендуемый объём аннотации составляет от 100 до 150 слов, напечатанных шрифтом высотой 12 пт, выравнивание по ширине.</li>
+                    <li><strong>Ключевые слова:</strong> через запятую, выравнивание по ширине (5-10 слов).</li>
+                    <li>Название статьи, ФИО автора, email, ученая степень, ученое звание, должность, место работы/учебы, аннотация, ключевые слова дублируются на <strong>английском языке</strong>.</li>
+                </ul>
+
+                <p><strong>ПОСЛЕ ТЕКСТА</strong></p>
+                <ul>
+                    <li>Список литературы оформляется в конце статьи под заголовком «Список источников» и располагается в строгом <strong>порядке упоминания источников в тексте</strong>. Список отделяется от основного текста статьи пустой строкой. Заголовок списка оформляется полужирным шрифтом.</li>
+					<li>Список источников должен включать <strong>не менее 10</strong> научных публикаций, включая статьи, монографии и диссертации. Рекомендуется использовать публикации, изданные <strong>за последние 5 лет</strong>. Приоритет отдается журнальным публикациям уровня РИНЦ и ВАК. Учебники, учебные пособия, рефераты и научно-популярные сайты не рекомендуются..</li>
+					<li>В тексте ссылки на библиографические источники оформляются в виде квадратных скобок, содержащих номер источника и, через запятую, номер страницы: [5, с. 115].<strong> Использование постраничных сносок не допускается</strong>.</li>
+                    <li>Не допускается использование автоматической нумерации, при формировании списка в тексте дается вручную.</li>
+                </ul>
+                
+                <p>Список литературы оформляется в соответствии с ГОСТ Р 7.0.5-2008.</p>
+            </section>
+
+
+        </div>
+    </main>
+
+    <footer class="footer">
+    
+        <div class="footer-top-row">
+            <div class="container">
+                <a href="index.html" class="logo-link">
+					<div class="logo">ИНТЕЛЛЕКТУАЛЫ</div>
+				</a>
+                <div class="phone-info">
+                    <span class="phone-number">8 918 ***-**-**</span>
+                    <span class="work-time">в рабочие дни с 10:00 до 17:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-row">
+            <div class="container">
+                <div class="col">
+                    <p class="col-title">Публикация в журнале</p>
+                    <ul>
+						<li><a href="authors.html">Требования оформления</a></li>
+						<li><a href="authors.html">Опубликовать статью</a></li>
+						<li><a href="authors.html">Порядок публикации</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<p class="col-title">О журнале</p>
+					<ul>
+						<li><a href="review.html">Редакционная политика</a></li>
+						<li><a href="board.html">Редакционная коллегия</a></li>
+						<li><a href="review.html">Рецензирование</a></li>
+						<li><a href="archive.html">Архив журнала</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">Контакты</p>
+                    <p class="contact-detail"><span class="icon-wrap"><img src="images/phone-icon.svg" alt="Телефон"></span> 8 918 ***-**-**</p> 
+                    <p class="contact-detail"><span class="icon-wrap"><img src="images/mail-icon.svg" alt="Почта"></span> ****@yandex.ru</p> 
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+   
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const emailLink = document.querySelector('.step-email-link');
+		const emailAddress = emailLink.getAttribute('data-email');
+		const icon = document.getElementById('copy-icon');
+		// Теперь элемент #copy-feedback находится внутри emailLink
+		const feedbackBox = emailLink.querySelector('#copy-feedback'); 
+		
+		const originalSrc = 'images/copy-icon-default.svg'; 
+		const successSrc = 'images/copy-icon-success.svg'; 
+
+		emailLink.addEventListener('click', (event) => {
+			event.preventDefault();
+
+			// Сбрасываем предыдущий таймаут, если он есть (для быстрых кликов)
+			clearTimeout(emailLink.hideTimer); 
+			
+			navigator.clipboard.writeText(emailAddress).then(() => {
+				
+				// 1. ПОКАЗ: Принудительно очищаем классы, чтобы запустить анимацию с начала
+				emailLink.classList.remove('copied');
+				feedbackBox.classList.remove('show');
+				
+				requestAnimationFrame(() => {
+					
+					// 2. Визуальная обратная связь
+					feedbackBox.classList.add('show');
+					emailLink.classList.add('copied');
+					icon.src = successSrc;
+				});
+
+				// 3. Плавное СКРЫТИЕ
+				// УСТАНОВЛЕНО 1500ms (1.5 секунды)
+				emailLink.hideTimer = setTimeout(() => {
+					
+					// Скрываем окошко, запуская анимацию (transition 0.5s)
+					feedbackBox.classList.remove('show');
+					
+					// Возвращаем стили ссылки и иконки после завершения анимации
+					// УСТАНОВЛЕНО 500ms (0.5s) — должно соответствовать transition в CSS
+					setTimeout(() => {
+						emailLink.classList.remove('copied');
+						icon.src = originalSrc;
+					}, 500); 
+
+				}, 1500); // Окно видно 1.5 секунды перед началом затухания
+				
+			}).catch(err => {
+				alert(`Ошибка при копировании. Пожалуйста, скопируйте вручную: ${emailAddress}`);
+			});
+		});
+	});
+	</script>
+    
+</body>
+</html>

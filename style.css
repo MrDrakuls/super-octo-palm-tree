@@ -1,0 +1,1068 @@
+/* ОБЩИЕ СТИЛИ И СБРОСЫ */
+
+/* ПОДКЛЮЧЕНИЕ ЛОКАЛЬНОГО ШРИФТА AKONY BOLD */
+@font-face {
+    font-family: 'Akony';
+    src: url('fonts/Akony-Bold.woff2') format('woff2'),
+          url('fonts/Akony-Bold.woff') format('woff');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    font-display: block;
+}
+
+:root {
+    --primary-color: #555555; 
+    --accent-color: #8F00FF; /* #A000A0 */
+    --bg-color: #F6F7F8; /* НОВЫЙ ОБЩИЙ ФОН САЙТА */ 
+    --border-color: #AAAAAA;
+    --font-family: 'Montserrat', sans-serif;
+    --max-width: 1080px;
+    --padding-sides: 370px;
+    /* Переменная для нового черного цвета */
+    --dark-color: #212121; 
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--primary-color);
+    background-color: var(--bg-color); /* Применяем новый фон */
+    line-height: 1.6;
+    font-size: 16px;
+    
+    /* Добавление сглаживания для лучшего соответствия Figma */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	
+	/* ИСПРАВЛЕНИЕ "ПРЫЖКА" МАКЕТА: ВСЕГДА ПОКАЗЫВАТЬ СТРОЛЛБАР */
+    /* Это зарезервирует место для полосы прокрутки. */
+    overflow-y: scroll; 
+}
+
+@keyframes slideInUp {
+    /* Начальное состояние: невидимый (0%) и смещенный вниз на 50px */
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    /* Конечное состояние: полностью видимый (100%) на своем месте */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    /* Это нужно, чтобы центрировать контент и оставить правильные отступы по бокам */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.logo {
+    /* ИСПРАВЛЕНО: Применяем шрифт Akony */
+    font-family: 'Akony', sans-serif; 
+    
+    /* ИСПРАВЛЕНО: Размер 14px */
+    font-size: 14px; 
+    
+    /* Должен быть Bold, который мы задали через @font-face */
+    font-weight: 700; 
+    
+    /* ИСПРАВЛЕНО: Цвет логотипа */
+    color: var(--dark-color); 
+	/* ИСПРАВЛЕНО: Добавление line-height для предотвращения слияния по вертикали */
+    line-height: 1.2; 
+}
+
+/* КНОПКИ - ОБЩИЕ СТИЛИ */
+.btn {
+    /* Высота 56px - Совпадает с Figma */
+    height: 56px; 
+    /* border: none; <--- Удаляем, так как теперь есть граница в btn-primary/btn-secondary */
+    cursor: pointer;
+    
+    /* Скругление 15px */
+    border-radius: 15px; 
+    
+    /* Размер текста 16px, Bold (700) */
+    font-size: 16px; 
+    font-weight: 700; 
+    text-transform: none; 
+    
+    /* НОВОЕ: Для ссылок <a> */
+    text-decoration: none; 
+    /* НОВОЕ: Плавный переход для всех свойств */
+    transition: all 0.3s ease; 
+    /* !!! ИСПРАВЛЕНИЕ: Запрет переноса текста на новую строку !!! */
+    white-space: nowrap; 
+
+    /* Для корректного центрирования текста по высоте */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* 1. Кнопка "Последний выпуск" */
+.btn-secondary {
+    /* !!! ИСПРАВЛЕНО: Увеличенная ширина (с 198px до 210px) для размещения текста в одну строку !!! */
+    width: 210px; 
+    padding: 0 20px; /* Отступы для выравнивания */
+    
+    /* Белый фон */
+    background-color: #FFFFFF;
+    
+    /* Толщина обводки 2px, Цвет обводки #212121 */
+    border: 2px solid var(--dark-color); 
+    color: var(--primary-color);
+    
+    /* Добавляем легкую тень */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+}
+
+/* АНИМАЦИЯ: Последний выпуск */
+.btn-secondary:hover {
+    background-color: var(--dark-color); /* Смена фона на темный */
+    color: white; /* Смена текста на белый */
+    transform: scale(1.05); /* Небольшое увеличение кнопки */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Усиленная тень */
+}
+
+
+/* 2. Кнопка "Разместить публикацию" */
+.btn-primary {
+    /* !!! ИСПРАВЛЕНО: Увеличенная ширина (с 246px до 265px) для размещения текста в одну строку !!! */
+    width: 265px;
+    padding: 0 20px;
+    
+    /* Цвет #8F00FF */
+    background-color: #8F00FF; 
+    color: white;
+    
+    /* Расстояние 25px */
+    margin-left: 25px; 
+    
+    /* Добавляем явную границу, чтобы предотвратить "прыжок" */
+    border: 2px solid #8F00FF;
+}
+
+/* АНИМАЦИЯ: Разместить публикацию */
+.btn-primary:hover {
+    background-color: #6F00CF;
+    border-color: #6F00CF;
+    transform: translateY(-2px); /* Небольшой подъем */
+	color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Красивая тень */
+}
+
+
+/* Дополнительно: чтобы кнопки выглядели красиво в ряду */
+.buttons {
+    margin-top: 40px; /* Увеличим отступ сверху */
+    margin-bottom: 40px; /* ИЗМЕНЕНО: Уменьшаем отступ до следующего элемента */
+}
+
+/* СТИЛИ ДЛЯ КНОПКИ В ПОДВАЛЕ (КУКИ) оставим как есть: */
+.btn-cookie {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-transform: none;
+    border-radius: 20px;
+}
+
+/* 1. HEADER */
+.header {
+    padding: 30px 0;
+    /* Устанавливаем фон хедера на белый */
+    background-color: #FFFFFF; 
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 14px;
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav a {
+    margin-left: 30px;
+    font-weight: 500;
+    color: #444444; /* Более темный для навигации */
+	min-width: 0;
+}
+
+.main-nav .active-page {
+	color: var(--accent-color); /* #A000A0 */
+}
+.col ul .active-page {
+	color: var(--accent-color) !important; 
+}
+
+.lang-switch span {
+    margin-left: 10px;
+    font-weight: 700;
+    color: #BBBBBB;
+}
+
+.lang-switch .active {
+    color: #444444;
+}
+
+/* 2. MAIN HERO SECTION */
+.hero-section {
+    padding-top: 100px;
+    /* ИЗМЕНЕНО: Убираем нижний padding. Отступ до следующего блока будет задавать .icons-row. */
+    padding-bottom: 0; 
+    text-align: center;
+}
+
+.hero-title {
+    /* Montserrat Black. */
+    font-weight: 900; 
+    font-size: 52px;
+    /* Используем новый темный цвет */
+    color: var(--dark-color); 
+    
+    /* Отступ снизу: 25px, как требовалось */
+    margin-bottom: 25px; 
+    line-height: 1.2; /* Улучшаем читаемость заголовка из двух строк */
+	/* Тень также используем с новым цветом */
+
+}
+
+.issn {
+    font-size: 14px;
+    font-weight: 500;
+    color: #AAAAAA;
+    text-align: right;
+    margin-top: -30px; 
+    
+    /* УДАЛЯЕМ эту строку, которая вызывала проблемы с выравниванием: */
+    /* margin-right: calc(var(--padding-sides) - 20px); */
+    margin-right: 0; /* Просто прижимаем к правому краю контейнера */
+}
+
+.hero-content-wrap {
+    /* Изначально делаем невидимым */
+    opacity: 0; 
+    
+    /* Применяем анимацию slideInUp (уже определена) */
+    /* Устанавливаем длительность 0.8s и задержку 0.1s */
+    animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    
+    /* Центрируем содержимое внутри этого блока, так как он наследует text-align: center 
+       от родителя .hero-section, но на всякий случай явно указываем: */
+    text-align: center;
+}
+
+.org-info {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-color);
+    /* Отступ сверху: 16px, как требовалось */
+    margin-top: 16px; 
+}
+
+.price-highlight {
+    /* Используем новый темный цвет */
+    color: var(--dark-color); 
+    font-weight: 600; 
+}
+
+.journal-info-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    /* Уменьшаем отступ снизу, чтобы сжать блок по вертикали */
+    margin-bottom: 20px; 
+	opacity: 0; /* Изначально делаем блок невидимым */
+    animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.info-details {
+    width: 60%;
+}
+
+.info-item {
+    /* ИСПРАВЛЕНО: Уменьшение вертикального отступа между пунктами с 25px до 10px */
+    margin-bottom: 10px;
+}
+
+.info-title {
+    /* Заголовок: 20px, жирный (700 - Bold) */
+    display: block;
+    font-weight: 700; 
+    /* Используем новый темный цвет */
+    color: var(--dark-color); 
+    font-size: 20px; 
+    /* ИСПРАВЛЕНО: Удаляем отступ, чтобы прижать к тексту */
+    margin-bottom: 0; 
+}
+
+.info-text {
+    /* Текст под заголовком: 16px, Medium (500) */
+    font-size: 16px;
+    color: #444444; 
+    font-weight: 500;
+}
+
+
+
+.cover-image {
+    /* Фиксированные размеры, примерно соответствующие пропорциям A4 (300px x 424px) */
+    width: 350px;
+    
+    /* КРИТИЧЕСКИ ВАЖНО для предотвращения "шакализации" и искажений */
+    object-fit: cover; /* Заполнит заданную область, не искажая пропорции */
+    
+    /* Предотвращение сжатия/растяжения (важно для Flexbox) */
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    display: block;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+	z-index: 2;
+}
+
+.small-text-legal {
+    font-size: 12px;
+    text-align: left;
+    
+    /* !!! ИСПРАВЛЕНИЕ: Устанавливаем ширину, равную текстовому блоку сверху (60%) !!! */
+    width: 60%; 
+    
+    line-height: 1.5; 
+    margin-bottom: 35px; 
+    
+    /* УДАЛЯЕМ centрирование и прижимаем влево (отступ 0 и auto справа) */
+    margin-left: 0; 
+    margin-right: auto; /* Это гарантирует прижатие к левому краю */
+    padding-left: 0;
+}
+
+.small-text-legal .link {
+    color: var(--accent-color);
+}
+
+.icons-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center; 
+    /* ИСПРАВЛЕНО: Устанавливаем необходимый отступ 35px */
+    margin-bottom: 35px; /* Устанавливаем точный отступ до следующего элемента */
+}
+
+.icon-placeholder {
+    width: 183px;
+    height: 76px;
+    border-radius: 23px;
+    
+    /* ИСПРАВЛЕНО: Flexbox для центрирования IMG */
+    display: flex;
+    align-items: center; /* Центрирует по вертикали */
+    justify-content: center; /* Центрирует по горизонтали */
+    
+    font-size: 10px; /* Удаляем, так как текста больше нет */
+    font-weight: 700; /* Удаляем, так как текста больше нет */
+    
+    background-color: #FFFFFF;
+    color: #444444; 
+    border: none;
+}
+
+/* Общий стиль для IMG: только сброс размеров */
+.icon-placeholder img {
+    height: auto; 
+    width: auto;
+}
+
+/* СТИЛИ ДЛЯ E-LIBRARY */
+.icon-elibrary {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    /* background-image удален, так как используем IMG */
+}
+
+/* НОВОЕ: СТИЛИ ДЛЯ E-LIBRARY: Увеличиваем размер */
+.icon-elibrary img {
+    max-width: 130%; /* Делаем его почти полным */
+    max-height: 130%;
+}
+
+/* СТИЛИ ДЛЯ OPEN ACCESS */
+.icon-open-access {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    /* background-image удален, так как используем IMG */
+}
+
+/* НОВОЕ: СТИЛИ ДЛЯ OPEN ACCESS: Сохраняем прежний размер */
+.icon-open-access img {
+    max-width: 80%; 
+    max-height: 80%;
+}
+
+
+/* СТИЛИ ДЛЯ МИССИИ И ЦЕЛЕЙ (mission-section) */
+.mission-section {
+    padding: 70px 0; 
+    border-bottom: 1px solid #EEEEEE;
+    text-align: center;
+    
+    /* НОВЫЕ СТИЛИ ДЛЯ АНИМАЦИИ: */
+    opacity: 0; 
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ДОБАВЛЕННЫЙ КЛАСС: КОГДА ЭЛЕМЕНТ В ВИДИМОСТИ */
+.mission-section {
+    padding: 70px 0; 
+    border-bottom: 1px solid #EEEEEE;
+    /* УДАЛЕНО: background-color: #FFFFFF; */ 
+    text-align: center;
+    
+    /* НОВЫЕ СТИЛИ ДЛЯ АНИМАЦИИ: */
+    opacity: 0; 
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ДОБАВЛЕННЫЙ КЛАСС: КОГДА ЭЛЕМЕНТ В ВИДИМОСТИ */
+.mission-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mission-section h2 {
+    /* ИЗМЕНЕНО: Размер 24px, чтобы соответствовать заголовку рубрик */
+    font-size: 24px; 
+    font-weight: 900;
+    color: var(--dark-color); /* #212121 */
+    margin-bottom: 30px;
+}
+
+.mission-section .mission-text {
+    /* ИЗМЕНЕНО: Уменьшение размера до 14px */
+    font-size: 14px; 
+    line-height: 1.7;
+    color: var(--primary-color); /* #555555 */
+    max-width: 900px; 
+    margin: 0 auto 30px auto; 
+    text-align: center; 
+}
+
+
+.mission-section .goals-list {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left; /* Выравниваем список по левому краю */
+}
+
+.mission-section .goals-list h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+/* НОВЫЙ БЛОК: Для текста Цели */
+.mission-section .goals-list p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--primary-color);
+}
+
+.mission-section .goals-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mission-section .goals-list li {
+    /* ИЗМЕНЕНО: Уменьшение размера до 14px */
+    font-size: 14px; 
+    line-height: 1.8;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    
+    /* Стили для кастомного тире */
+    text-indent: -1.5em;
+    padding-left: 1.5em;
+}
+
+/* Кастомный маркер тире */
+.mission-section .goals-list li::before {
+    content: '–'; 
+    color: var(--dark-color); 
+    font-weight: 700;
+    display: inline-block; 
+    width: 1.5em; 
+    text-indent: 0; 
+    margin-right: 0.2em;
+}
+
+
+/* АДАПТИВНОСТЬ для mission-section */
+@media (max-width: 768px) {
+    .mission-section {
+        padding: 40px 0;
+    }
+    .mission-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .mission-section .mission-text, 
+    .mission-section .goals-list {
+        padding: 0 15px; /* Добавляем боковые отступы */
+        max-width: 100%;
+        text-align: left;
+    }
+    .mission-section .mission-text,
+    .mission-section .goals-list p,
+    .mission-section .goals-list li {
+        /* Устанавливаем единый размер 16px для мобильных */
+        font-size: 16px; 
+        text-align: center;
+    }
+    .mission-section .goals-list h3 {
+        font-size: 18px;
+    }
+    .mission-section .goals-list li {
+        font-size: 16px;
+        /* Адаптируем отступ для мобильных */
+        text-indent: -1.3em;
+        padding-left: 1.3em;
+    }
+    .mission-section .goals-list li::before {
+        width: 1.3em;
+    }
+}
+
+/* 3. RUBRICS SECTION */
+.rubrics-section {
+    /* ИСПРАВЛЕНО: Убираем верхний padding (устанавливаем 0), чтобы отступ 35px от .icons-row работал корректно */
+    padding: 0 0 100px; /* Было: padding: 50px 0 100px; */
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    
+    /* НОВЫЕ СТИЛИ ДЛЯ АНИМАЦИИ ПРИ ПРОКРУТКЕ */
+    /* 1. Начальное скрытое состояние: невидимый и сдвинутый вниз */
+    opacity: 0; 
+    transform: translateY(50px);
+    /* 2. Плавный переход, который сработает при добавлении класса is-visible */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* НОВЫЙ КЛАСС: КОГДА ЭЛЕМЕНТ В ВИДИМОСТИ */
+.rubrics-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rubrics-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    /* Используем новый темный цвет */
+    color: var(--dark-color); 
+}
+
+.rubrics-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rubric-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Изменяем, чтобы списки были плотнее */
+    width: 30%; 
+}
+
+.rubric-list li {
+    font-size: 14px;
+    line-height: 2.2;
+    color: #444444;
+}
+
+/* 4. FOOTER */
+.footer {
+    padding-top: 0; 
+}
+
+/* Footer TOP (ВНЕШНЯЯ БЕЛАЯ ПОЛОСА НА ВСЮ ШИРИНУ) */
+.footer-top-row {
+    background-color: #FFFFFF; /* БЕЛЫЙ ФОН на 100% ширины */
+    border-bottom: 1px solid #EEEEEE;
+}
+
+/* Стили для КОНТЕНТА ВНУТРИ TOP ROW (центрирование и flex-выравнивание) */
+.footer-top-row .container {
+    display: flex;
+    /* ИЗМЕНЕНО: Меняем на flex-start, чтобы блоки не растягивались */
+    justify-content: flex-start; /* Было: space-between */
+    align-items: center;
+    padding: 35px 0; 
+}
+
+.footer-top-row .logo-link:hover {
+    text-decoration: none;
+    /* Также, на всякий случай, если есть изменение цвета */
+    color: var(--dark-color); /* Сохраняем исходный цвет логотипа */
+    opacity: 1; /* Если есть эффект снижения прозрачности, отменяем его */
+}
+
+
+/* 2. Настраиваем блок с контактами: прижимаем к правому краю с отступом */
+.phone-info {
+    /* КРИТИЧЕСКИ ВАЖНО: Добавляем автоматический левый отступ, который "съест" все лишнее пространство */
+    margin-left: auto; 
+    
+    /* ДОБАВЛЕНО: Устанавливаем ширину, чтобы расстояние между блоками было 470px. 
+    Это значение может потребовать тонкой настройки в зависимости от точной ширины логотипа.
+    Я устанавливаю его для того, чтобы весь блок .phone-info был прижат к правому краю.
+    */
+    width: 320px; /* Предположительная ширина для блока контактов */
+    
+    text-align: left;
+    font-size: 14px;
+}
+
+.phone-number {
+    /* ОСТАВЛЕНО: Montserrat Black (900), 20px */
+    display: block;
+    font-weight: 900; 
+    font-size: 20px; 
+    color: var(--dark-color); 
+}
+
+.work-time {
+    color: #AAAAAA;
+    /* ОСТАВЛЕНО: Размер 13px */
+    font-size: 13px;
+    font-weight: 400; 
+    /* ДОБАВЛЕНО: Нужно, чтобы время работы начиналось с новой строки и не прижималось вправо */
+    display: block;
+}
+
+/* Footer MIDDLE (Разделы ссылок) */
+.footer-bottom-row {
+    background-color: var(--bg-color); /* Фон по умолчанию (#F6F7F8) */
+    padding: 50px 0;
+}
+
+/* Footer MIDDLE (Разделы ссылок) */
+.footer-bottom-row .container {
+    display: flex;
+    /* Убеждаемся, что центрирование включено */
+    justify-content: center; 
+    /* Убеждаемся, что отступ между колонками задан */
+    gap: 75px; 
+    align-items: flex-start;
+}
+
+
+/* СТИЛИ ДЛЯ КОЛОНОК */
+.col {
+    /* Эти свойства гарантируют, что колонки не растягиваются */
+    width: auto;
+    flex-grow: 0; 
+    flex-shrink: 0;
+    padding: 0; 
+}
+
+/* * ВНИМАНИЕ: Блок .col.placeholder-for-image УДАЛЕН ИЗ CSS,
+ * поскольку вы должны удалить его ИЗ HTML для центрирования!
+*/
+
+.col-title {
+    font-size: 16px; 
+    font-weight: 400; 
+    /* Цвет заголовка - #212121 */
+    color: var(--dark-color); 
+    margin-bottom: 25px; 
+    text-transform: none; 
+}
+
+.col ul {
+    list-style: none;
+}
+
+.col li a {
+    font-size: 16px; 
+    line-height: 1.8; 
+    /* Цвет ссылок - #777777 */
+    color: #777777; 
+}
+
+.contact-detail {
+    font-size: 16px; 
+    line-height: 1.8; 
+    /* Цвет текста (номер телефона и почта) - #212121 */
+    color: var(--dark-color); 
+    font-weight: 500; 
+    /* ДОБАВЛЕНО: Используем Flexbox для вертикального центрирования иконки и текста */
+    display: flex; 
+    align-items: center;
+}
+
+/* Стиль для обертки иконки (.icon-wrap) */
+.contact-detail .icon-wrap {
+    /* Добавляем Flexbox для выравнивания */
+    display: inline-flex;
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: center;
+    
+    /* ИСПРАВЛЕНО: Устанавливаем фиксированный размер 24x24px для области иконки */
+    width: 24px; 
+    height: 24px;
+    
+    /* Сбрасываем лишние свойства шрифтов */
+    font-weight: 400; 
+    
+    /* Цвет иконки - #212121 (для SVG) */
+    color: var(--dark-color); 
+    
+    /* ИСПРАВЛЕНО: Отступ */
+    margin-right: 15px; 
+}
+
+/* Стилизация самой иконки */
+.contact-detail .icon-wrap img {
+    /* ИСПРАВЛЕНО: Сама картинка займет всю площадь обертки (24x24) */
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+}
+
+/* 5. НОВЫЙ ФИКСИРОВАННЫЙ БЛОК КУКИ */
+
+.cookie-fixed-bar {
+    /* Фиксированное позиционирование внизу экрана */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    
+    /* Растягиваем на всю ширину и устанавливаем высокий z-index, чтобы быть поверх всего */
+    width: 100%;
+    z-index: 1000; 
+    
+    /* Стилизация фона и отступов */
+    background-color: var(--bg-color); /* #F6F7F8 */
+    padding: 20px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень сверху */
+    
+    /* Flexbox для выравнивания содержимого */
+    display: flex;
+    justify-content: center; /* Центрируем весь контент (текст и кнопку) */
+    align-items: center;
+}
+
+.cookie-fixed-bar .cookie-policy-text {
+    /* Ограничиваем ширину текста, чтобы не растягивался на весь экран */
+    max-width: 800px; 
+    font-size: 14px; /* Чуть крупнее, чем было */
+    line-height: 1.5;
+    color: #444444; 
+    
+    /* Добавляем отступ справа перед кнопкой */
+    margin-right: 25px; 
+    text-align: left;
+}
+
+.cookie-fixed-bar .cookie-policy-text a {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Стили кнопки оставляем прежними, так как они уже определены как .btn-cookie */
+
+/* ======================================= */
+/* 3. НАВИГАЦИЯ И ССЫЛКИ: СТИЛИ АКТИВНОЙ СТРАНИЦЫ И НАВЕДЕНИЯ */
+/* (Перенесено из <style> блоков HTML-файлов) */
+/* ======================================= */
+/* Стиль для выделения активной страницы */
+.main-nav a.active-page {
+	font-weight: 700;
+	color: #8F00FF; /* Условный акцентный цвет для выделения */
+}
+
+/* Стили для наведения на ссылки в главном меню (кроме активной) */
+.main-nav a:not(.active-page):hover {
+	opacity: 0.8; /* Небольшое осветление/затемнение текста */
+	text-decoration: underline; /* Подчеркивание */
+}
+
+/* Стили для наведения на ссылки в футере */
+.footer a:hover {
+	opacity: 0.8; /* Небольшое осветление/затемнение текста */
+	text-decoration: underline;
+}
+
+/* ==================================================== */
+/* === АДАПТИВНОСТЬ: СТИЛИ ДЛЯ ШИРИНЫ МЕНЕЕ 768PX (ПЛАНШЕТЫ И ТЕЛЕФОНЫ) === */
+/* ==================================================== */
+
+@media (max-width: 768px) {
+    /* 1. КОНТЕЙНЕР И ОБЩИЕ ОТСТУПЫ */
+    .container {
+        /* Убираем большие отступы по бокам, устанавливаем небольшой фиксированный отступ */
+        padding: 0 15px; 
+    }
+    
+    /* 2. ШАПКА И НАВИГАЦИЯ (HEADER) */
+    .nav-bar {
+        /* Включаем вертикальную компоновку для логотипа и меню */
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .logo-link {
+        /* Отступ снизу, чтобы отделить логотип от меню */
+        margin-bottom: 15px; 
+    }
+    
+    .main-nav {
+        /* Переключаем меню в вертикальный режим */
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        width: 100%; /* Занимает всю доступную ширину */
+        /* Убираем лишние отступы, которые были на десктопе */
+        margin-right: 0;
+    }
+    
+    .main-nav a {
+        /* Увеличиваем область клика */
+        padding: 10px 0; 
+        width: 100%; 
+        text-align: center;
+        /* Убираем лишний margin-left от десктопного стиля */
+        margin-left: 0; 
+        border-bottom: 1px solid #eee; /* Добавляем разделитель */
+    }
+
+    /* Убираем нижний разделитель для последней ссылки в меню */
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+    
+    .lang-switch {
+        /* Перемещаем переключатель языка под меню */
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    
+    /* 3. ГЛАВНЫЙ БЛОК (HERO SECTION) */
+    .hero-section {
+        padding-top: 50px; /* Уменьшаем верхний отступ */
+    }
+
+    .hero-title {
+        /* Уменьшаем размер шрифта заголовка для экономии места */
+        font-size: 36px; 
+        line-height: 1.2;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .issn {
+        text-align: center;
+        margin-top: 0; /* Убираем отрицательный отступ */
+    }
+
+    .org-info {
+        text-align: center;
+    }
+    
+    .buttons {
+        /* Делаем кнопки вертикальными */
+        flex-direction: column;
+        gap: 15px; /* Увеличиваем вертикальный отступ между кнопками */
+        width: 100%;
+        max-width: 300px; /* Ограничиваем ширину кнопок */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .btn {
+        width: 100%; /* Кнопки занимают всю доступную ширину */
+        text-align: center;
+        /* Убираем лишний margin-left, который был только у .btn-primary */
+        margin-left: 0; 
+    }
+
+    /* Убираем margin-left для btn-primary, который мешает центрированию */
+    .btn-primary {
+        margin-left: 0;
+    }
+
+    /* 4. ИНФОРМАЦИОННЫЙ БЛОК ЖУРНАЛА */
+    .journal-info-block {
+        /* Переключаем компоновку на вертикальную */
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .info-details {
+        /* Блок информации занимает всю ширину */
+        width: 100%; 
+    }
+
+    /* Делаем блок информации в одну колонку */
+    .info-details {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .info-title {
+        font-size: 18px; /* Немного уменьшим размер заголовка */
+        text-align: center;
+    }
+    
+    .info-item p {
+        text-align: center;
+    }
+
+    .cover-image {
+        /* На мобильных устройствах уменьшаем размер */
+        width: 50%; 
+        height: auto; /* Позволяем высоте подстроиться под новые пропорции */
+        max-width: 250px; /* Ограничиваем максимальный размер */
+        margin-top: 20px;
+    }
+    
+    .small-text-legal {
+        text-align: center; /* Центрируем мелкий текст */
+        width: 100%; /* Занимает всю ширину */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* 5. ИКОНКИ eLibrary/Open Access */
+    .icons-row {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 50px; /* Увеличиваем отступ до следующей секции */
+    }
+    
+    .icon-placeholder {
+        width: 100%;
+        max-width: 300px; /* Ограничиваем ширину для центрирования */
+        margin: 0 auto;
+    }
+
+
+    /* 6. РУБРИКИ */
+    .rubrics-section {
+        padding: 30px 0; /* Уменьшаем вертикальный отступ */
+    }
+
+    .rubrics-section h2 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .rubrics-grid {
+        /* Переключаем сетку рубрик в вертикальное отображение */
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .rubric-list {
+        width: 100%; /* Занимает всю ширину */
+    }
+
+    .rubric-list li {
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    
+    /* 7. ФУТЕР (ПОДВАЛ) */
+    .footer-top-row .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .phone-info {
+        /* Убираем margin-left: auto */
+        margin-left: 0;
+        width: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .phone-number {
+        font-size: 18px;
+    }
+
+    .footer-bottom-row .container {
+        /* Устанавливаем вертикальный стек колонок */
+        flex-direction: column; /* Меняем flex-выравнивание на вертикальное */
+        gap: 40px;
+        padding-top: 30px; 
+        align-items: center;
+    }
+
+    .footer-bottom-row .col {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-bottom-row .col ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .contact-detail {
+        justify-content: center; /* Центрируем контакты */
+    }
+    
+    /* 8. КУКИ-БАР */
+    .cookie-fixed-bar {
+        flex-direction: column;
+        padding: 15px;
+        align-items: stretch; /* Растягиваем дочерние элементы */
+        text-align: center;
+    }
+
+    .cookie-fixed-bar .cookie-policy-text {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+}

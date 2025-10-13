@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Archive | Intellectuals | Scientific Journal</title>
+    <link rel="preload" href="../favicon.ico" as="image">
+	<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"> 
+    
+    <style>
+        /* ======================================= */
+        /* ОБЩИЕ СТИЛИ СТРАНИЦЫ */
+        /* ======================================= */
+        
+        /* Общий стиль для ссылок в навигации для выделения активной страницы */
+        .main-nav .active-page {
+            color: var(--accent-color); /* #A000A0 */
+        }
+        .col ul .active-page {
+            color: var(--accent-color) !important; 
+        }
+
+        /* Стили для основной секции контента */
+        .content-section {
+            padding: 20px 0 100px;
+            max-width: var(--max-width); 
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* ЗАГОЛОВОК H2: Montserrat Black 24px, по центру */
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: 900; /* Black */
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 15px;
+            text-align: center; /* Центрируем заголовок */
+        }
+        
+        /* Стиль для подзаголовка ISSN */
+        .issn-inline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #AAAAAA;
+            text-align: right;
+            margin-bottom: 15px; 
+            display: block;
+        }
+        
+        /* ======================================= */
+        /* СТИЛИ ДЛЯ ИНФОРМАЦИОННЫХ ПЛАШЕК (СКОРРЕКТИРОВАНО) */
+        /* ======================================= */
+        
+        /* Контейнер для двух плашек */
+        .plaque-group {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 20px; 
+        }
+
+        /* Общий стиль для плашек */
+        .plaque-base {
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%; 
+            flex-shrink: 0;
+            /* Цвет текста по умолчанию для фиолетовой плашки */
+            color: white; 
+        }
+        
+        /* 1. СТИЛЬ: "ТЕКУЩИЙ ВЫПУСК" (Белый фон, черная рамка) */
+        .plaque-latest {
+            background-color: white;
+            border: 2px solid var(--dark-color); /* #212121 */
+            color: var(--dark-color); /* Темный текст */
+        }
+        
+        /* 2. СТИЛЬ: "НАБОР В СЛЕДУЮЩИЙ НОМЕР" (Новый фиолетовый фон) */
+        .plaque-submit {
+            background-color: #8F00FF; /* Новый, более насыщенный фиолетовый */
+            color: white;
+        }
+
+        .plaque-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .plaque-issue-info {
+            font-size: 14px;
+            font-weight: 500;
+            /* Изменяем прозрачность для белой плашки */
+            opacity: 0.8; 
+            line-height: 1.2;
+        }
+        
+        /* Общий стиль кнопки для плашек (белый фон) */
+		.btn-plaque {
+			/* Переопределяем высоту, padding, font-size и border-radius из .btn-primary */
+			height: 56px;
+			padding: 0 25px; /* Увеличим отступы */
+			border-radius: 15px; /* Скругление как на главной */
+			font-size: 16px; /* Размер текста как на главной */
+			
+			/* Дополнительные стили, которые были в .btn-plaque */
+			text-decoration: none;
+			font-weight: 700;
+			transition: all 0.3s ease; /* Плавный переход */
+			flex-shrink: 0;
+			margin-left: 20px;
+			white-space: nowrap; 
+			
+			/* Добавляем обводку по умолчанию (как у .btn-secondary, но цветом акцента) */
+			border: 2px solid #8F00FF; /* Фиолетовая обводка по умолчанию */
+		}
+
+		/* 1. Стиль кнопки "Читать выпуск" (Белая плашка) */
+		.plaque-latest .btn-plaque {
+			/* Фон: Белый. Текст: Темный. Обводка: Не нужна (прозрачная) */
+			background-color: white;
+			color: var(--dark-color);
+			border-color: transparent; /* Убираем обводку, делая ее прозрачной */
+		}
+
+		/* 2. Стиль кнопки "Отправить статью" (Фиолетовая плашка) */
+		.plaque-submit .btn-plaque {
+			/* Фон: Белый. Текст: Фиолетовый. Обводка: Фиолетовая. */
+			background-color: white;
+			color: #8F00FF; 
+			border-color: #8F00FF; /* Обводка остается фиолетовой */
+		}
+
+		/* ЭФФЕКТ НАВЕДЕНИЯ НА КНОПКИ В ПЛАШКАХ (КОРРЕКЦИЯ АНИМАЦИИ) */
+		.btn-plaque:hover {
+			/* Делаем фон чуть серее */
+			background-color: #EEEEEE; 
+			
+			/* Эффект подъема и тени, как у кнопок на главной */
+			transform: translateY(-2px);
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+			
+			/* Убеждаемся, что цвет обводки при наведении не меняется (если не нужно) */
+			/* border-color: inherit; */ 
+		}
+
+		/* Наведение на "Отправить статью" (Фиолетовая кнопка): обводка остается фиолетовой */
+		.plaque-submit .btn-plaque:hover {
+			border-color: #8F00FF;
+		}
+
+		/* Наведение на "Читать выпуск" (Белая кнопка): обводка остается прозрачной */
+		.plaque-latest .btn-plaque:hover {
+			border-color: transparent;
+		}
+
+        /* ======================================= */
+        /* СТИЛИ ДЛЯ АРХИВА ВЫПУСКОВ */
+        /* ======================================= */
+        
+        /* Заголовок года (например, 2024) */
+        .archive-year {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-top: 35px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #EEEEEE;
+            padding-bottom: 10px;
+        }
+        
+        /* Контейнер для сетки карточек выпусков */
+        .issue-grid {
+            display: grid;
+            /* 4 колонки с промежутком 20px */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        /* Карточка выпуска */
+        .issue-card {
+            display: block;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        /* Плейсхолдер для обложки */
+        .issue-cover-placeholder {
+            width: 100%;
+            /* Фиксированное соотношение сторон для обложки (например, 3:4) */
+            padding-top: 133.33%; /* 4/3 * 100% */
+            background-color: #DDDDDD; /* Светлый фон для обложки */
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: box-shadow 0.2s;
+            position: relative;
+        }
+        
+        /* Стиль для текста выпуска (Номер и Год) */
+        .issue-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        /* Эффект при наведении */
+        .issue-card:hover .issue-cover-placeholder {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .issue-card:hover .issue-title {
+            color: var(--accent-color);
+        }
+        
+        /* Дополнительный текст на обложке */
+        .issue-cover-placeholder::after {
+            content: 'Cover';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #555555;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <a href="indexen.html" class="logo-link">
+					<div class="logo">INTELLECTUALS</div>
+				</a>
+                <nav class="main-nav">			
+					<a href="indexen.html">About the Journal</a>
+                    <a href="boarden.html">Editorial Board</a>
+                    <a href="reviewen.html">Review Process</a>
+                    <a href="authorsen.html">For Authors</a>
+                    <a href="archiveen.html" class="active-page">Issue Archive</a>
+                </nav>
+                <div class="lang-switch">
+                    <span><a href="../archive.html">RU</a></span>
+                    <span class="active">EN</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section"> 
+            
+            <span class="issn-inline">ISSN **-***-** (Online)</span>
+            <h2>Issue Archive</h2>
+
+            <div class="plaque-group">
+                
+                <div class="plaque-base plaque-latest">
+                    <div class="plaque-text">
+                        <p class="plaque-title">Current Issue</p>
+                        <p class="plaque-issue-info">Volume 1, No. 2 (2025). Released: 14.03.2025</p>
+                    </div>
+                    <a href="../files/issue-2025-1.pdf" class="btn btn-plaque" target="_blank">Read Issue</a>
+                </div>
+                
+                <div class="plaque-base plaque-submit">
+                    <div class="plaque-text">
+                        <p class="plaque-title">Call for Papers for the Next Issue</p>
+                        <p class="plaque-issue-info">2025, No. 3. Submission Deadline: June 30 (inclusive)</p>
+                    </div>
+                    <a href="authorsen.html" class="btn btn-plaque">Submit Article</a>
+                </div>
+                
+            </div>
+            <p class="archive-year">2025</p>
+            <div class="issue-grid">
+                
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 1</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 2</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 3</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 4</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 5</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 6</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 7</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 8</p>
+                </a>
+
+            </div>
+            
+            <p class="archive-year">2024</p>
+            <div class="issue-grid">
+                
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 1</p>
+                </a>
+                <a href="#" class="issue-card">
+                    <div class="issue-cover-placeholder"></div>
+                    <p class="issue-title">Volume 1, No. 2</p>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+    
+		<div class="footer-top-row">
+			<div class="container">
+                <a href="indexen.html" class="logo-link">
+					<div class="logo">INTELLECTUALS</div>
+				</a>
+				<div class="phone-info">
+					<span class="phone-number">8 918 ***-**-**</span>
+					<span class="work-time">on weekdays from 10:00 to 17:00</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom-row">
+			<div class="container">
+				<div class="col">
+					<p class="col-title">Publication in the Journal</p>
+					<ul>
+                        <li><a href="authorsen.html">Submission Guidelines</a></li>
+						<li><a href="authorsen.html">Publish an Article</a></li>
+						<li><a href="authorsen.html">Publication Procedure</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<p class="col-title">About the Journal</p>
+					<ul>
+                        <li><a href="reviewen.html">Editorial Policy</a></li>
+						<li><a href="boarden.html">Editorial Board</a></li>
+						<li><a href="reviewen.html">Review Process</a></li>
+						<li><a href="archiveen.html">Journal Archive</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<p class="col-title">Contacts</p>
+                    <p class="contact-detail"><span class="icon-wrap"><img src="../images/phone-icon.svg" alt="Phone"></span> 8 918 ***-**-**</p> 
+					<p class="contact-detail"><span class="icon-wrap"><img src="../images/mail-icon.svg" alt="Mail"></span> ****@yandex.ru</p> 
+				</div>
+			</div>
+		</div>
+	</footer>
+    
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Process | Intellectuals | Scientific Journal</title>
+    <link rel="preload" href="../favicon.ico" as="image">
+	<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="../style.css" as="style">
+	<link rel="stylesheet" href="../style.css"> <style>
+        /* Общий стиль для ссылок в навигации для выделения активной страницы */
+        .main-nav .active-page {
+            color: var(--accent-color); /* #A000A0 */
+        }
+        .col ul .active-page {
+            color: var(--accent-color) !important; 
+        }
+
+        /* Стили для основной секции контента */
+        .content-section {
+            /* ИСПРАВЛЕНИЕ: Уменьшен верхний отступ с 50px до 20px */
+            padding: 20px 0 100px;
+            max-width: var(--max-width); 
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* ЗАГОЛОВОК H2: Montserrat Black 24px, по центру */
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: 900; /* Black */
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 15px;
+            text-align: center; /* Центрируем заголовок */
+        }
+        
+        /* ОСНОВНОЙ ТЕКСТ: Montserrat Regular 16px, line-height: 1 */
+        .content-section p {
+            font-size: 16px;
+            font-weight: 400; /* Regular */
+            line-height: 1; /* МЕЖСТРОЧНЫЙ ИНТЕРВАЛ 1 */
+            color: #444444;
+            margin-bottom: 25px;
+        }
+
+        /* Стиль для списка требований (текст внутри - тоже Regular 16px) */
+        .review-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 35px;
+        }
+
+        .review-list li {
+            font-size: 16px;
+            font-weight: 400; /* Regular */
+            line-height: 1; /* МЕЖСТРОЧНЫЙ ИНТЕРВАЛ 1 */
+            color: #444444;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        /* Кастомный маркер */
+        .review-list li::before {
+            content: '—'; 
+            position: absolute;
+            left: 0;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        /* Стиль для подзаголовка ISSN */
+        .issn-inline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #AAAAAA;
+            text-align: right;
+            /* ИСПРАВЛЕНИЕ: Уменьшен нижний отступ с 40px до 15px */
+            margin-bottom: 15px; 
+            display: block;
+        }
+        
+        /* Выделение жирным в тексте (теперь стилизуется только тег <strong>) */
+        .content-section strong {
+            font-weight: 700; /* Bold */
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-bar">
+                <a href="indexen.html" class="logo-link">
+					<div class="logo">INTELLECTUALS</div>
+				</a>
+                <nav class="main-nav">
+					<a href="indexen.html">About the Journal</a>
+                    <a href="boarden.html">Editorial Board</a>
+                    <a href="reviewen.html" class="active-page">Review Process</a>
+                    <a href="authorsen.html">For Authors</a>
+                    <a href="archiveen.html">Archive</a>
+                </nav>
+                <div class="lang-switch">
+                    <span><a href="../review.html">RU</a></span>
+                    <span class="active">EN</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section"> 
+            
+            <span class="issn-inline">ISSN **-***-** (Online)</span>
+            
+            <h2>Review Process</h2>
+            
+            <p>Articles submitted by the authors to the editorial office undergo review. After the article is received, the responsible employee of the editorial office conducts a primary examination for compliance with the technical requirements and the journal's profile. Materials that do not meet these conditions are returned to the authors with an indication of the reasons for refusal. After the primary examination, the article manuscript is sent to the reviewer.</p>
+            
+            <p>The **originality of the article text must be at least 75%**.</p>
+            
+            <p>Reviewers are specialists who have a Candidate or Doctor of Sciences degree, are experts in the subject matter of the material being reviewed, and have scientific publications relevant to the reviewed material within the last three years.</p>
+            
+            <p>Reviewers understand that the materials sent to them are the private property of the authors and contain information that is not subject to disclosure. Reviewers are not allowed to make copies of the articles. The review is conducted confidentially. The form of review is single-blind (the reviewer knows who the author is, but the author does not know who the reviewer is) or double-blind (neither the reviewer knows the author's identity, nor the author knows the reviewer's identity).</p>
+            
+            <p>The deadlines for review are determined by the editorial board in each individual case, taking into account the creation of conditions for the most prompt publication of articles. Review periods may vary. The optimal review period for a scientific journal article is approximately **15-30 business days**. Deadlines depend on the quality of the article, its volume, and the speed of communication between the editorial office and the reviewer.</p>
+            
+            <p>The review reflects the following points:</p>
+            <ul class="review-list">
+                <li>whether the content of the article corresponds to the topic stated in the title;</li>
+                <li>whether the content of the article is relevant, original, new, and aligns with the journal's scientific direction;</li>
+                <li>whether the article possesses a scientific style, logical arrangement of material, and clarity of tables, figures, and formulas;</li>
+                <li>what methodology and literature are used in the research, and how much they correspond to the goals and objectives of the research;</li>
+                <li>whether the article is free from grammatical errors;</li>
+                <li>what specifically are the positive aspects and disadvantages of the article, and what corrections and additions should be made by the author;</li>
+                <li>does the reviewer conclude, in their opinion, that the article they have read is recommended for publication; recommended with corrections of noted shortcomings, or not recommended for publication;</li>
+            </ul>
+            
+            <p>Upon receiving a review with comments, these comments are sent to the author via email with a proposal to revise the article. After correction, the author sends the article to the editorial office again. If a negative review is received, the article is rejected.</p>
+            
+            <p>Manuscripts of articles that have not passed the initial review and have been published in the journal are not considered further. The author of the submitted material has the right to withdraw the article, inform the editor-in-chief about it, or submit a written refusal of publication due to a conflict of interest or violation of publication ethical rules. In case of receiving a positive review for the submitted manuscript, a decision is made to publish the article.</p>
+            
+            <p>After the decision to approve the article for publication is made, the responsible employee of the editorial office informs the author and specifies the publication deadlines.</p>
+            
+            <p>The review is provided to the authors upon their written request, without the signature and indication of the reviewer's surname, position, and place of work. The editorial office does not enter into discussion with the authors of rejected materials and does not return manuscripts.</p>
+            
+            <p>The editorial office reserves the right to make editorial changes to the text of the article that do not distort its meaning (literary and technical editing).</p>
+            
+            <p>If the publication of the article has affected the violation of someone's copyright or generally accepted norms of scientific ethics, the editorial board of the scientific journal has the right to withdraw the published article.</p>
+            
+            <p>The Publisher or the editorial board of the Edition reserves the right to **retract (recall) the Work** from the scientific domain without a statute of limitations for publication in cases of violation by the author or co-authors of generally accepted norms of scientific ethics or other violations and ethical norms or ethical principles of the journal. Retraction is carried out in accordance with the retraction procedure adopted by the editorial board.</p>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+    
+        <div class="footer-top-row">
+            <div class="container">
+                <a href="indexen.html" class="logo-link">
+					<div class="logo">INTELLECTUALS</div>
+				</a>
+                <div class="phone-info">
+                    <span class="phone-number">8 918 ***-**-**</span>
+                    <span class="work-time">on weekdays from 10:00 to 17:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-row">
+            <div class="container">
+                <div class="col">
+                    <p class="col-title">Publication in the Journal</p>
+                    <ul>
+                        <li><a href="authorsen.html">Submission Guidelines</a></li>
+                        <li><a href="authorsen.html">Publish an Article</a></li>
+                        <li><a href="authorsen.html">Publication Procedure</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">About the Journal</p>
+                    <ul>
+                        <li><a href="reviewen.html">Editorial Policy</a></li>
+                        <li><a href="boarden.html">Editorial Board</a></li>
+                        <li class="active-page"><a href="reviewen.html">Review Process</a></li> 
+                        <li><a href="archiveen.html">Journal Archive</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p class="col-title">Contacts</p>
+                    <p class="contact-detail"><span class="icon-wrap"><img src="../images/phone-icon.svg" alt="Phone"></span> 8 918 ***-**-**</p> 
+                    <p class="contact-detail"><span class="icon-wrap"><img src="../images/mail-icon.svg" alt="Mail"></span> ****@yandex.ru</p> 
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
