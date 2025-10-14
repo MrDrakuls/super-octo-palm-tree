@@ -326,8 +326,6 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            /* ИЗМЕНЕНО: Удаляем верхний отступ (он не нужен, так как его задал .steps-nav). 
-            Оставляем только отступ снизу, как было ранее. */
             margin-top: 0;
             margin-bottom: 50px; 
         }
@@ -444,6 +442,90 @@
         }
         .col ul .active-page {
             color: var(--accent-color) !important; 
+        }
+
+        /* ======================================= */
+        /* === МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ === */
+        /* ======================================= */
+        
+        /* Изменения для средних экранов (например, планшеты в альбомной ориентации) */
+        @media (max-width: 1080px) {
+            .steps-nav {
+                gap: 15px; /* Уменьшаем отступ между карточками */
+                /* Уменьшаем внешний отступ, чтобы дать больше места контенту */
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            .step-card {
+                /* Пересчитываем ширину с учетом 3 отступов по 15px */
+                width: calc((100% - 45px) / 4);
+                padding: 30px 10px 15px; /* Уменьшаем отступы внутри карточки */
+            }
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                top: -20px;
+            }
+            .step-card-text {
+                font-size: 13px;
+            }
+        }
+        
+        /* Изменения для мобильных устройств (смартфоны, планшеты в портретной ориентации) */
+        @media (max-width: 768px) {
+            
+            /* 1. Адаптация основного контейнера */
+            .content-section {
+                /* Уменьшаем вертикальный отступ и добавляем стандартный горизонтальный отступ для мобильных */
+                padding: 20px 15px 50px; 
+            }
+            .content-section h2 {
+                font-size: 22px;
+            }
+
+            /* 2. Адаптация Шагов Публикации (2 колонки) */
+            .steps-nav {
+                flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+                justify-content: center;
+                gap: 20px; /* Отступ между карточками */
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .step-card {
+                /* Две карточки в ряд, учитывая отступ 20px */
+                width: calc(50% - 10px); 
+                padding: 40px 10px 20px;
+                min-height: 160px; /* Чтобы все карточки были одинаковой высоты */
+            }
+            .step-card-text {
+                font-size: 14px;
+            }
+            
+            /* 3. Адаптация Сетки Информационных Блоков (1 колонка) */
+            .info-blocks-grid {
+                flex-direction: column; /* Располагаем блоки друг под другом */
+                gap: 20px;
+            }
+
+            .info-blocks-grid > .info-block:first-child,
+            .info-blocks-grid > .info-block:last-child {
+                width: 100%; /* Полная ширина для обоих блоков */
+            }
+            .info-block {
+                padding: 20px;
+            }
+
+            /* 4. Адаптация секции правил */
+            .rules-section p, .rules-section li {
+                font-size: 15px;
+            }
+
+            /* 5. Адаптация ссылок на скачивание */
+            .download-link-item {
+                font-size: 15px;
+            }
         }
     </style>
     
@@ -716,5 +798,4 @@
 	</script>
     
 </body>
-
 </html>

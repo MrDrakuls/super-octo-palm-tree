@@ -878,6 +878,22 @@ a:hover {
     .hero-section {
         padding-top: 50px; /* Уменьшаем верхний отступ */
     }
+	
+	 /* Геройская секция: Кнопки */
+    .hero-section .buttons {
+        /* Меняем горизонтальное расположение на вертикальное */
+        flex-direction: column; 
+        /* Устанавливаем вертикальный отступ 15px между кнопками */
+        gap: 15px; 
+    }
+
+    .hero-section .buttons a {
+        /* Растягиваем каждую кнопку на полную ширину контейнера */
+        width: 100%; 
+        /* Добавляем небольшой внутренний отступ для эстетики */
+        padding: 12px 20px; 
+		margin-left: 0 !important;
+    }
 
     .hero-title {
         /* Уменьшаем размер шрифта заголовка для экономии места */
@@ -900,7 +916,7 @@ a:hover {
     .buttons {
         /* Делаем кнопки вертикальными */
         flex-direction: column;
-        gap: 15px; /* Увеличиваем вертикальный отступ между кнопками */
+        gap: 25px; /* Увеличиваем вертикальный отступ между кнопками */
         width: 100%;
         max-width: 300px; /* Ограничиваем ширину кнопок */
         margin-left: auto;
@@ -908,16 +924,19 @@ a:hover {
     }
     
     .btn {
-        width: 100%; /* Кнопки занимают всю доступную ширину */
+        width: 100% !important; /* Кнопки занимают всю доступную ширину */
         text-align: center;
         /* Убираем лишний margin-left, который был только у .btn-primary */
-        margin-left: 0; 
+        margin-left: 0 !important; 
     }
 
     /* Убираем margin-left для btn-primary, который мешает центрированию */
     .btn-primary {
-        margin-left: 0;
-    }
+		/* КРИТИЧЕСКИ ВАЖНО: сбрасываем левый отступ из десктопного стиля */
+		margin-left: 0 !important; 
+		/* Сбросим отступ сверху, если он появился */
+		margin-top: 15px !important; 
+	}
 
     /* 4. ИНФОРМАЦИОННЫЙ БЛОК ЖУРНАЛА */
     .journal-info-block {
@@ -1064,6 +1083,5 @@ a:hover {
         margin-bottom: 15px;
         text-align: center;
     }
-
 
 }
