@@ -3,8 +3,8 @@
 /* ПОДКЛЮЧЕНИЕ ЛОКАЛЬНОГО ШРИФТА AKONY BOLD */
 @font-face {
     font-family: 'Akony';
-    src: url('fonts/Akony-Bold.woff2') format('woff2'),
-          url('fonts/Akony-Bold.woff') format('woff');
+    src: url('fonts/AKONY.woff2') format('woff2'),
+          url('fonts/AKONY.woff') format('woff');
     font-weight: 700; /* Bold */
     font-style: normal;
     font-display: block;
@@ -1064,5 +1064,6 @@ a:hover {
         margin-bottom: 15px;
         text-align: center;
     }
+
 
 }
