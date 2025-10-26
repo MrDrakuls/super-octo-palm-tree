@@ -518,6 +518,18 @@ a:hover {
     margin-right: 0.2em;
 }
 
+::selection {
+    /* Фон выделения: Фиолетовый (из переменной --accent-color) */
+    background: var(--accent-color); 
+    /* Цвет текста на выделенном фоне: Белый */
+    color: white; 
+}
+
+/* Дополнительно, для совместимости со старыми версиями Firefox */
+::-moz-selection {
+    background: var(--accent-color);
+    color: white;
+}
 
 /* АДАПТИВНОСТЬ для mission-section */
 @media (max-width: 768px) {
@@ -1083,5 +1095,6 @@ a:hover {
         margin-bottom: 15px;
         text-align: center;
     }
+
 
 }
