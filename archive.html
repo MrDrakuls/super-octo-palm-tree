@@ -62,8 +62,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 50%; 
-            flex-shrink: 0;
+            flex: 1 1 0;
+            min-width: 0;
             /* Цвет текста по умолчанию для фиолетовой плашки */
             color: white; 
         }
@@ -230,6 +230,99 @@
             content: none;
 			display: none;
 		}
+
+        /* ======================================= */
+        /* АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ И МОБИЛЬНЫХ */
+        /* ======================================= */
+        
+        /* Планшеты (до 900px) */
+        @media (max-width: 900px) {
+            .plaque-group {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+            .plaque-base {
+                width: 100%;
+                flex: none;
+            }
+            .issue-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Мобильные устройства и портретные планшеты (до 768px) */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 15px 0 50px;
+            }
+            .content-section h2 {
+                font-size: 22px;
+                margin-bottom: 20px;
+                padding-bottom: 12px;
+            }
+            .issn-inline {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+            .archive-year {
+                font-size: 18px;
+                margin-top: 25px;
+                margin-bottom: 15px;
+                padding-bottom: 8px;
+            }
+        }
+
+        /* Смартфоны (до 580px) */
+        @media (max-width: 580px) {
+            .plaque-base {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                padding: 20px 16px;
+                gap: 16px;
+            }
+            .plaque-text {
+                margin-bottom: 0;
+            }
+            .plaque-title {
+                font-size: 16px;
+            }
+            .plaque-issue-info {
+                font-size: 13px;
+            }
+            .btn-plaque {
+                margin-left: 0;
+                width: 100%;
+                height: 50px;
+                font-size: 15px;
+                padding: 0 15px;
+                justify-content: center;
+            }
+            .issue-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px 12px;
+                margin-bottom: 35px;
+            }
+            .issue-title {
+                font-size: 13px;
+            }
+            .issue-cover-placeholder::after {
+                font-size: 15px;
+            }
+        }
+
+        /* Маленькие смартфоны (до 360px) */
+        @media (max-width: 360px) {
+            .issue-grid {
+                gap: 10px;
+            }
+            .issue-title {
+                font-size: 12px;
+            }
+        }
     </style>
     
 </head>
